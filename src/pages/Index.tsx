@@ -6,7 +6,7 @@ import { ArrowRight, Beer } from "lucide-react";
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [bubbles, setBubbles] = useState<Array<{ id: number; left: number; delay: number }>>([]);
-  const [foamBubbles, setFoamBubbles] = useState<Array<{ id: number; left: number; size: number; opacity: number }>>([]);
+  const [foamBubbles, setFoamBubbles] = useState<Array<{ id: number; left: number; size: number; opacity: number; depth: number }>>([]);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -19,12 +19,13 @@ const Index = () => {
     }));
     setBubbles(newBubbles);
 
-    // Create foam bubbles at the top
-    const newFoamBubbles = Array.from({ length: 15 }, (_, i) => ({
+    // Create foam bubbles at the top - increase quantity for more volume
+    const newFoamBubbles = Array.from({ length: 30 }, (_, i) => ({
       id: i,
       left: Math.random() * 100, // 0-100%
-      size: Math.random() * 25 + 10, // 10-35px
-      opacity: Math.random() * 0.5 + 0.2, // 0.2-0.7 opacity
+      size: Math.random() * 35 + 15, // 15-50px - increased size
+      opacity: Math.random() * 0.4 + 0.3, // 0.3-0.7 opacity - more visible
+      depth: Math.floor(Math.random() * 3), // 0-2 for layering
     }));
     setFoamBubbles(newFoamBubbles);
 
@@ -41,22 +42,36 @@ const Index = () => {
         <div className="absolute bottom-1/3 right-1/3 w-64 h-64 rounded-full bg-spezli-red opacity-20 animate-pulse-subtle blur-3xl"></div>
       </div>
 
-      {/* Beer foam at the top */}
-      <div className="absolute top-0 left-0 w-full h-20 overflow-hidden">
+      {/* Enhanced beer foam at the top with gradient background */}
+      <div className="absolute top-0 left-0 w-full h-28 overflow-hidden">
+        {/* Gradient background for foam area */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/90 to-transparent"></div>
+        
+        {/* Larger, more visible foam base */}
+        <div className="absolute top-0 left-0 w-full h-14 bg-white/40 backdrop-blur-sm"></div>
+        
+        {/* Multiple layers of foam bubbles */}
         {foamBubbles.map((bubble) => (
           <div
             key={`foam-${bubble.id}`}
-            className="absolute rounded-full bg-white"
+            className="absolute rounded-full"
             style={{
               left: `${bubble.left}%`,
-              top: -bubble.size / 2,
+              top: bubble.depth * 5 - bubble.size / 2,
               width: `${bubble.size}px`,
               height: `${bubble.size}px`,
+              background: 'rgba(255, 255, 255, 0.85)',
               opacity: bubble.opacity,
-              boxShadow: '0 0 10px rgba(255, 255, 255, 0.7)'
+              boxShadow: '0 0 12px rgba(255, 255, 255, 0.8)',
+              zIndex: 3 - bubble.depth,
+              filter: 'blur(1px)'
             }}
           />
         ))}
+        
+        {/* Additional subtle foam texture elements */}
+        <div className="absolute top-8 left-0 w-full h-8 bg-white/10"></div>
+        <div className="absolute top-10 left-1/4 w-1/2 h-6 bg-white/15 rounded-full blur-sm"></div>
       </div>
 
       {/* Bubble animation */}
