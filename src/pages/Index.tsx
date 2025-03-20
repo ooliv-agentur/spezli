@@ -6,6 +6,7 @@ import { ArrowRight, Beer } from "lucide-react";
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [bubbles, setBubbles] = useState<Array<{ id: number; left: number; delay: number }>>([]);
+  const [foamBubbles, setFoamBubbles] = useState<Array<{ id: number; left: number; size: number; opacity: number }>>([]);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -18,6 +19,15 @@ const Index = () => {
     }));
     setBubbles(newBubbles);
 
+    // Create foam bubbles at the top
+    const newFoamBubbles = Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100, // 0-100%
+      size: Math.random() * 25 + 10, // 10-35px
+      opacity: Math.random() * 0.5 + 0.2, // 0.2-0.7 opacity
+    }));
+    setFoamBubbles(newFoamBubbles);
+
     // Preload image
     const img = new Image();
     img.src = "/lovable-uploads/21a6f950-5b34-4ed2-90e5-99e87b6b533b.png";
@@ -29,6 +39,24 @@ const Index = () => {
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
         <div className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-spezli-gold opacity-30 animate-pulse-subtle blur-3xl"></div>
         <div className="absolute bottom-1/3 right-1/3 w-64 h-64 rounded-full bg-spezli-red opacity-20 animate-pulse-subtle blur-3xl"></div>
+      </div>
+
+      {/* Beer foam at the top */}
+      <div className="absolute top-0 left-0 w-full h-20 overflow-hidden">
+        {foamBubbles.map((bubble) => (
+          <div
+            key={`foam-${bubble.id}`}
+            className="absolute rounded-full bg-white"
+            style={{
+              left: `${bubble.left}%`,
+              top: -bubble.size / 2,
+              width: `${bubble.size}px`,
+              height: `${bubble.size}px`,
+              opacity: bubble.opacity,
+              boxShadow: '0 0 10px rgba(255, 255, 255, 0.7)'
+            }}
+          />
+        ))}
       </div>
 
       {/* Bubble animation */}
@@ -65,17 +93,18 @@ const Index = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-spezli-brown/80 max-w-md">
-            Willkommen auf unserer kleinen, aber feinen Landingpage. 
-            Hier ist alles bereit für dich!
+            Du bist auf spez.li gelandet – klein, aber oho!
           </p>
           
           <motion.a
-            href="https://example.com" 
+            href="https://www.spez-ag.ch" 
+            target="_blank"
+            rel="noopener noreferrer"
             className="spezli-button group flex items-center gap-2"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
-            Zur Homepage
+            Hier geht's zur SPEZ AG!
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </motion.a>
         </motion.div>
