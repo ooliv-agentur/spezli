@@ -34,7 +34,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center px-4 bg-gradient-to-br from-spezli-beige to-white">
+    <div className="relative min-h-screen w-full overflow-x-hidden flex flex-col items-center px-4 bg-gradient-to-br from-spezli-beige to-white">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
         <div className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-spezli-gold opacity-30 animate-pulse-subtle blur-3xl"></div>
@@ -72,7 +72,7 @@ const Index = () => {
         />
       ))}
 
-      <div className="container max-w-7xl mx-auto flex flex-col items-center justify-center gap-12 lg:gap-16 z-10 py-8">
+      <div className="container max-w-7xl mx-auto flex flex-col items-center gap-12 lg:gap-16 z-10 py-12 lg:py-16">
         {/* Hero Section */}
         <motion.div 
           className="flex flex-col items-center text-center space-y-6"
@@ -179,7 +179,7 @@ const Index = () => {
 
       {/* Footer small print */}
       <motion.div 
-        className="absolute bottom-4 text-center text-spezli-brown/60 text-sm"
+        className="relative w-full text-center text-spezli-brown/60 text-sm py-8 mt-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoaded ? 0.8 : 0 }}
         transition={{ duration: 1, delay: 1.2 }}
