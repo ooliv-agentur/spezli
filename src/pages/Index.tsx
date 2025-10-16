@@ -154,7 +154,7 @@ const Index = () => {
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               >
                 <img
-                  src="/lovable-uploads/beer-bottle.png"
+                  src="/lovable-uploads/spezli-bottle.png"
                   alt="SPEZ.li Büezer-Bier"
                   className="object-contain w-full max-w-[180px] sm:max-w-[250px] h-auto drop-shadow-2xl"
                 />
