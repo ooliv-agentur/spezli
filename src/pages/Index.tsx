@@ -156,7 +156,7 @@ const Index = () => {
                 <img
                   src="/lovable-uploads/spezli-bottle.png"
                   alt="SPEZ.li Büezer-Bier"
-                  className="object-contain w-full max-w-[180px] sm:max-w-[250px] h-auto drop-shadow-2xl"
+                  className="object-contain w-full max-w-[120px] sm:max-w-[160px] h-auto drop-shadow-2xl"
                 />
               </motion.div>
 
