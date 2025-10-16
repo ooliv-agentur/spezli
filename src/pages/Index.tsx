@@ -72,10 +72,10 @@ const Index = () => {
         />
       ))}
 
-      <div className="container max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 z-10">
-        {/* Left content area */}
+      <div className="container max-w-7xl mx-auto flex flex-col items-center justify-center gap-12 lg:gap-16 z-10 py-8">
+        {/* Hero Section */}
         <motion.div 
-          className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
+          className="flex flex-col items-center text-center space-y-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
           transition={{ duration: 0.7, delay: 0.3 }}
@@ -88,45 +88,91 @@ const Index = () => {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-spezli-brown tracking-tight">
-            <span className="block">Prost!</span>
-            <span className="text-spezli-red">Spezli-Zeit!</span>
+            <span className="block">Chrampfsch wie es Tier?</span>
+            <span className="text-spezli-red">Denn gönn der vo de SPEZ AG es Büezer-Bier!</span>
           </h1>
-          
-          <p className="text-lg md:text-xl text-spezli-brown/80 max-w-md">
-            Du bist auf spez.li gelandet – klein, aber oho!
-          </p>
-          
-          <motion.a
-            href="https://www.spez-ag.ch" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="spezli-button group flex items-center gap-2"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Hier geht's zur SPEZ AG!
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </motion.a>
         </motion.div>
 
-        {/* Right image area */}
-        <motion.div 
-          className="flex-1 flex justify-center lg:justify-end"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 50 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+        {/* Middle Section - Welcome Text + Woodcutter */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Welcome Card */}
+          <motion.div
+            className="glass-panel p-8 rounded-2xl"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : -50 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <p className="text-lg md:text-xl text-spezli-brown leading-relaxed">
+              Härzlich Willkomme uf üsere Fiirabig-Homepage. Du hesch en aasträngende Tag gha, mit em guete Team macht das am meischte Spass! Das läbe mir i de SPEZ AG und wünsche der drum mit em SPEZ.Li en schöne Fiirabig.
+            </p>
+            <motion.a
+              href="https://www.spez-ag.ch" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="spezli-button group flex items-center gap-2 mt-6 inline-flex"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Zur SPEZ AG!
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </motion.a>
+          </motion.div>
+
+          {/* Woodcutter Image */}
+          <motion.div 
+            className="flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 50 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >
+            <div className="relative w-full max-w-md">
+              <motion.img
+                src="/lovable-uploads/21a6f950-5b34-4ed2-90e5-99e87b6b533b.png"
+                alt="Spezli Holzfäller mit Motorsäge"
+                className="object-contain w-full h-auto max-h-[60vh] drop-shadow-xl"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              />
+              <div className="absolute -inset-0.5 bg-spezli-gold/5 rounded-full blur-3xl opacity-30 animate-pulse-subtle"></div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Merchandise Call-to-Action */}
+        <motion.div
+          className="w-full max-w-4xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <div className="relative w-full max-w-md">
-            <motion.img
-              src="/lovable-uploads/21a6f950-5b34-4ed2-90e5-99e87b6b533b.png"
-              alt="Spezli Holzfäller mit Motorsäge"
-              className="object-contain w-full h-auto max-h-[70vh] drop-shadow-xl"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            />
-            
-            {/* Subtle highlight effect */}
-            <div className="absolute -inset-0.5 bg-spezli-gold/5 rounded-full blur-3xl opacity-30 animate-pulse-subtle"></div>
+          <div className="glass-panel p-8 lg:p-12 rounded-2xl border-2 border-spezli-red/30 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              {/* Beer Bottle Image */}
+              <motion.div 
+                className="flex justify-center"
+                animate={{ rotate: [0, -3, 3, -3, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              >
+                <img
+                  src="/lovable-uploads/beer-bottle.png"
+                  alt="SPEZ.li Büezer-Bier"
+                  className="object-contain w-full max-w-[250px] h-auto drop-shadow-2xl"
+                />
+              </motion.div>
+
+              {/* Text Content */}
+              <div className="text-center md:text-left space-y-4">
+                <h2 className="text-2xl lg:text-3xl font-display font-bold text-spezli-brown">
+                  Hesch no kei SPEZ.li Büezer-Bier chönne gniesse?
+                </h2>
+                <p className="text-lg text-spezli-brown/80">
+                  Oder bruuchsch no öppis vo üsem Merchandise?
+                </p>
+                <p className="text-xl font-semibold text-spezli-red">
+                  Mäld dich bi dim SPEZ Kolleg!
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -138,7 +184,7 @@ const Index = () => {
         animate={{ opacity: isLoaded ? 0.8 : 0 }}
         transition={{ duration: 1, delay: 1.2 }}
       >
-        © {new Date().getFullYear()} spez.li • Ein kleines Bier, ein großer Schritt
+        © {new Date().getFullYear()} spez.li • Es chlises Bier, e grosse Schritt
       </motion.div>
     </div>
   );
