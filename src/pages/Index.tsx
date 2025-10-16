@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Beer } from "lucide-react";
+import { ArrowRight, Beer, Mail } from "lucide-react";
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -168,9 +168,13 @@ const Index = () => {
                 <p className="text-lg text-spezli-brown/80">
                   Oder bruuchsch no öppis vo üsem Merchandise?
                 </p>
-                <p className="text-xl font-semibold text-spezli-red">
+                <a 
+                  href="mailto:info@spez-ag.ch"
+                  className="text-xl font-semibold text-spezli-red hover:text-spezli-brown transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Mail size={24} />
                   Mäld dich bi dim SPEZ Kolleg!
-                </p>
+                </a>
               </div>
             </div>
           </div>
