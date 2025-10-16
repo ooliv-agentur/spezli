@@ -34,7 +34,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden flex flex-col items-center px-4 bg-gradient-to-br from-spezli-beige to-white">
+    <div className="relative min-h-screen w-full overflow-x-hidden flex flex-col items-center px-3 sm:px-4 bg-gradient-to-br from-spezli-beige to-white">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
         <div className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-spezli-gold opacity-30 animate-pulse-subtle blur-3xl"></div>
@@ -72,7 +72,7 @@ const Index = () => {
         />
       ))}
 
-      <div className="container max-w-7xl mx-auto flex flex-col items-center gap-12 lg:gap-16 z-10 py-12 lg:py-16">
+      <div className="container max-w-7xl mx-auto flex flex-col items-center gap-8 sm:gap-12 lg:gap-16 z-10 py-8 sm:py-12 lg:py-16">
         {/* Hero Section */}
         <motion.div 
           className="flex flex-col items-center text-center space-y-6"
@@ -87,7 +87,7 @@ const Index = () => {
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-spezli-brown tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-spezli-brown tracking-tight">
             <span className="block">Chrampfsch wie es Tier?</span>
             <span className="text-spezli-red">Denn gönn der vo de SPEZ AG es Büezer-Bier!</span>
           </h1>
@@ -97,7 +97,7 @@ const Index = () => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Welcome Card */}
           <motion.div
-            className="glass-panel p-8 rounded-2xl"
+            className="glass-panel p-6 sm:p-8 rounded-2xl"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : -50 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -109,7 +109,7 @@ const Index = () => {
               href="https://www.spez-ag.ch" 
               target="_blank"
               rel="noopener noreferrer"
-              className="spezli-button group flex items-center gap-2 mt-6 inline-flex"
+              className="spezli-button group flex items-center gap-2 mt-6 inline-flex w-full sm:w-auto justify-center"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -145,7 +145,7 @@ const Index = () => {
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <div className="glass-panel p-8 lg:p-12 rounded-2xl border-2 border-spezli-red/30 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div className="glass-panel p-6 sm:p-8 lg:p-12 rounded-2xl border-2 border-spezli-red/30 shadow-xl hover:shadow-2xl transition-all duration-300">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               {/* Beer Bottle Image */}
               <motion.div 
@@ -156,12 +156,12 @@ const Index = () => {
                 <img
                   src="/lovable-uploads/beer-bottle.png"
                   alt="SPEZ.li Büezer-Bier"
-                  className="object-contain w-full max-w-[250px] h-auto drop-shadow-2xl"
+                  className="object-contain w-full max-w-[180px] sm:max-w-[250px] h-auto drop-shadow-2xl"
                 />
               </motion.div>
 
               {/* Text Content */}
-              <div className="text-center md:text-left space-y-4">
+              <div className="text-center space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-display font-bold text-spezli-brown">
                   Hesch no kei SPEZ.li Büezer-Bier chönne gniesse?
                 </h2>
