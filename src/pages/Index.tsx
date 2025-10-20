@@ -103,7 +103,7 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <p className="text-lg md:text-xl text-spezli-brown leading-relaxed">
-              Härzlich Willkomme uf üsere Fiirabig-Homepage. Du hesch en aasträngende Tag gha, mit em guete Team macht das am meischte Spass! Das läbe mir i de SPEZ AG und wünsche der drum mit em SPEZ.Li en schöne Fiirabig.
+              Herzlich Willkomme uf üsere Fiirabig-Homepage. Du hesch en aasträngende Tag gha, mit eme guete Team macht das am meischte Spass! Das läbet mir i de SPEZ AG und wünschet dir drum mit em SPEZ.Li en schöne Fiirabig.
             </p>
             <motion.a
               href="https://www.spez-ag.ch" 
@@ -163,10 +163,13 @@ const Index = () => {
               {/* Text Content */}
               <div className="text-center space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-display font-bold text-spezli-brown">
-                  Hesch no kei SPEZ.li Büezer-Bier chönne gniesse?
+                  Hesch no keis SPEZ.li Büezer-Bier chönne gnüsse?
                 </h2>
                 <p className="text-lg text-spezli-brown/80">
                   Oder bruuchsch no öppis vo üsem Merchandise?
+                </p>
+                <p className="text-lg text-spezli-brown/80">
+                  Vom Chäppli bis zum Schriber bütet mir dir alles :)
                 </p>
                 <a 
                   href="mailto:info@spez-ag.ch"
@@ -188,7 +191,7 @@ const Index = () => {
         animate={{ opacity: isLoaded ? 0.8 : 0 }}
         transition={{ duration: 1, delay: 1.2 }}
       >
-        © {new Date().getFullYear()} spez.li • Es chlises Bier, e grosse Schritt
+        © {new Date().getFullYear()} spez.li • Es chlises Bier, en grosse Schritt
       </motion.div>
     </div>
   );
